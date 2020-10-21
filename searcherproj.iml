@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Lucene">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/highlighter/lucene-highlighter-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/grouping/lucene-grouping-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/test-framework/lucene-test-framework-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/test-framework/lib/hamcrest-core-1.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/test-framework/lib/randomizedtesting-runner-2.7.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/test-framework/lib/junit-4.12.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lucene-replicator-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/httpcore-4.4.12.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/jetty-server-9.4.27.v20200227.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/jetty-http-9.4.27.v20200227.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/jetty-io-9.4.27.v20200227.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/httpclient-4.5.10.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/commons-logging-1.1.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/jetty-util-9.4.27.v20200227.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/jetty-continuation-9.4.27.v20200227.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/replicator/lib/jetty-servlet-9.4.27.v20200227.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/queryparser/lucene-queryparser-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/spatial3d/lucene-spatial3d-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/misc/lucene-misc-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/codecs/lucene-codecs-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/spatial-extras/lucene-spatial-extras-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/spatial-extras/lib/spatial4j-0.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/spatial-extras/lib/jts-core-1.15.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/spatial-extras/lib/s2-geometry-library-java-1.0.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/spatial-extras/lib/spatial4j-0.7-tests.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/spatial-extras/lib/slf4j-api-1.7.24.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/demo/lucene-demo-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/monitor/lucene-monitor-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/core/lucene-core-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/luke/lucene-luke-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/luke/lib/log4j-core-2.13.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/luke/lib/log4j-api-2.13.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/suggest/lucene-suggest-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/icu/lucene-analyzers-icu-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/icu/lib/icu4j-62.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/stempel/lucene-analyzers-stempel-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/nori/lucene-analyzers-nori-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/smartcn/lucene-analyzers-smartcn-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/opennlp/lucene-analyzers-opennlp-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/opennlp/lib/opennlp-tools-1.9.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/morfologik/lucene-analyzers-morfologik-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/morfologik/lib/morfologik-stemming-2.1.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/morfologik/lib/morfologik-polish-2.1.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/morfologik/lib/morfologik-fsa-2.1.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/morfologik/lib/morfologik-ukrainian-search-4.9.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/kuromoji/lucene-analyzers-kuromoji-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/phonetic/lib/commons-codec-1.13.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/phonetic/lucene-analyzers-phonetic-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/analysis/common/lucene-analyzers-common-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/expressions/lucene-expressions-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/expressions/lib/asm-commons-7.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/expressions/lib/antlr4-runtime-4.5.1-1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/expressions/lib/asm-7.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/sandbox/lucene-sandbox-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/classification/lucene-classification-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/join/lucene-join-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/benchmark/lucene-benchmark-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/benchmark/lib/spatial4j-0.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/benchmark/lib/commons-compress-1.19.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/benchmark/lib/xercesImpl-2.12.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/benchmark/lib/icu4j-62.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/benchmark/lib/nekohtml-1.9.17.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/backward-codecs/lucene-backward-codecs-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/memory/lucene-memory-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/facet/lucene-facet-8.6.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/facet/lib/hppc-0.8.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../lucene-8.6.3/queries/lucene-queries-8.6.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library name="JUnit5.4">
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.4.2/junit-jupiter-5.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.2/junit-jupiter-api-5.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.4.2/junit-platform-commons-1.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.4.2/junit-jupiter-params-5.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.4.2/junit-jupiter-engine-5.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.4.2/junit-platform-engine-1.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="testng">
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/beust/jcommander/1.72/jcommander-1.72.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.4.2/junit-jupiter-5.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.2/junit-jupiter-api-5.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.4.2/junit-platform-commons-1.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.4.2/junit-jupiter-params-5.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.4.2/junit-jupiter-engine-5.4.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.4.2/junit-platform-engine-1.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
