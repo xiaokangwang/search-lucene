@@ -23,7 +23,7 @@ class DocSearcherTest {
 
     @Test
     void search() throws IOException, ParseException {
-        SearchPolicy sp = new SearchPolicy(Float.valueOf((float) 2), Float.valueOf((float) 2), Float.valueOf((float) 1.5), 20);
+        SearchPolicy sp = new SearchPolicy(Float.valueOf((float) 2), Float.valueOf((float) 0.5), Float.valueOf((float) 1.5), 200);
         String IndexLocation = "./index";
         DocSearcher ds = new DocSearcher(sp, IndexLocation);
 
@@ -33,8 +33,12 @@ class DocSearcherTest {
 
         SearchResultOutputer sro = new SearchResultOutputer();
         for (Integer i : qh.getContains().keySet()) {
-            List<SearchResult> sr = ds.Search(qh.getContains().get(i));
-            sro.OutputSearchResult(sr, i);
+            //if (i == 196) {
+                List<SearchResult> sr = ds.Search(qh.getContains().get(i));
+
+                sro.OutputSearchResult(sr, i);
+           // }
+
 
         }
         Files.deleteIfExists(Paths.get("result.txt"));

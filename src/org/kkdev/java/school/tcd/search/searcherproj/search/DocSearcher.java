@@ -1,6 +1,7 @@
 package org.kkdev.java.school.tcd.search.searcherproj.search;
 
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
@@ -8,7 +9,9 @@ import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.*;
 import org.apache.lucene.search.similarities.BM25Similarity;
+import org.apache.lucene.search.similarities.ClassicSimilarity;
 import org.apache.lucene.store.FSDirectory;
+import org.kkdev.java.school.tcd.search.searcherproj.Ayer;
 import org.kkdev.java.school.tcd.search.searcherproj.data.Query;
 import org.kkdev.java.school.tcd.search.searcherproj.data.SearchPolicy;
 import org.kkdev.java.school.tcd.search.searcherproj.data.SearchResult;
@@ -22,7 +25,7 @@ public class DocSearcher {
     private SearchPolicy SearchPolicy;
     private String Location;
 
-    private Analyzer analyzer = new StandardAnalyzer();
+    private Analyzer analyzer = Ayer.analyzer;;
 
     public DocSearcher(org.kkdev.java.school.tcd.search.searcherproj.data.SearchPolicy searchPolicy, String location) {
         SearchPolicy = searchPolicy;
@@ -38,7 +41,8 @@ public class DocSearcher {
         booleanQueryBuilder.add(CreateQuery("title",query.getText()), BooleanClause.Occur.SHOULD);
         booleanQueryBuilder.add(CreateQuery("text",query.getText()), BooleanClause.Occur.SHOULD);
         booleanQueryBuilder.add(CreateQuery("author",query.getText()), BooleanClause.Occur.SHOULD);
-        TopDocs docs = searcher.search(booleanQueryBuilder.build(), SearchPolicy.getMaxDocument());
+        BooleanQuery qu = booleanQueryBuilder.build();
+        TopDocs docs = searcher.search(qu, SearchPolicy.getMaxDocument());
         for (ScoreDoc docsw:docs.scoreDocs
              ) {
             Integer id = Integer.valueOf(searcher.doc(docsw.doc).get("id"));
@@ -62,5 +66,12 @@ public class DocSearcher {
                 break;
         }
         return qr;
+    }
+
+    private String ExplainDoc(org.apache.lucene.search.Query qu, Integer id, IndexSearcher searcher) throws ParseException, IOException {
+        org.apache.lucene.search.Query qud = CreateQuery("id",String.valueOf(id));
+        TopDocs docs = searcher.search(qud,1);
+        Integer docid = docs.scoreDocs[0].doc;
+        return searcher.explain(qu,docid).toString();
     }
 }

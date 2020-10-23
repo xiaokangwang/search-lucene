@@ -14,8 +14,8 @@ public class Document {
     public Document(HashMap<String, String> data) {
         Id = Integer.valueOf(data.get(".I"));
         Title = data.get(".T");
-        Author = data.get(".B");
-        DateString = data.get(".W");
+        Author = data.get(".A");
+        DateString = data.get(".B");
         Text = data.get(".W");
     }
 
