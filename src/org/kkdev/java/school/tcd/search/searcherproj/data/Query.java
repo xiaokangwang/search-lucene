@@ -25,7 +25,8 @@ public class Query {
     }
 
     public String getText() {
-        return Text;
+
+        return Text.replace('?',' ').replace('*',' ');
     }
 
     public void setText(String text) {
