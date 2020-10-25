@@ -32,4 +32,12 @@ public class Query {
     public void setText(String text) {
         Text = text;
     }
+
+    @Override
+    public String toString() {
+        return "Query{" +
+                "Id=" + Id +
+                ", Text='" + Text + '\'' +
+                '}';
+    }
 }
