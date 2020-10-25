@@ -5,6 +5,7 @@ import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.*;
@@ -20,6 +21,7 @@ import org.kkdev.java.school.tcd.search.searcherproj.data.SearchResult;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,7 +29,8 @@ public class DocSearcher {
     private SearchPolicy SearchPolicy;
     private String Location;
 
-    private Analyzer analyzer = Ayer.analyzer;;
+    private Analyzer analyzer = Ayer.analyzer;
+    ;
 
     public DocSearcher(org.kkdev.java.school.tcd.search.searcherproj.data.SearchPolicy searchPolicy, String location) {
         SearchPolicy = searchPolicy;
@@ -39,41 +42,51 @@ public class DocSearcher {
         IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(Location)));
         IndexSearcher searcher = new IndexSearcher(reader);
         searcher.setSimilarity(new BM25Similarity());
-        BooleanQuery.Builder booleanQueryBuilder = new BooleanQuery.Builder();
-        booleanQueryBuilder.add(CreateQuery("title",query.getText()), BooleanClause.Occur.SHOULD);
-        booleanQueryBuilder.add(CreateQuery("text",query.getText()), BooleanClause.Occur.SHOULD);
-        booleanQueryBuilder.add(CreateQuery("author",query.getText()), BooleanClause.Occur.SHOULD);
-        BooleanQuery qu = booleanQueryBuilder.build();
+
+
+        HashMap<String, Float> boostedScores = new HashMap<String, Float>();
+        boostedScores.put("title", SearchPolicy.getTitleAuthority());
+        boostedScores.put("author", SearchPolicy.getAuthorAuthority());
+        boostedScores.put("date", SearchPolicy.getDateAuthority());
+        boostedScores.put("text", SearchPolicy.getTextAuthority());
+        MultiFieldQueryParser parser = new MultiFieldQueryParser(
+                new String[]{"title", "author", "date", "text"},
+                analyzer, boostedScores);
+
+        org.apache.lucene.search.Query qu = parser.parse(QueryParser.escape(query.getText()));
+
         TopDocs docs = searcher.search(qu, SearchPolicy.getMaxDocument());
-        for (ScoreDoc docsw:docs.scoreDocs
-             ) {
+        Integer Rank = 0;
+        for (ScoreDoc docsw : docs.scoreDocs
+        ) {
             Integer id = Integer.valueOf(searcher.doc(docsw.doc).get("id"));
-            sr.add(new SearchResult(id, docsw.score));
+            sr.add(new SearchResult(id, docsw.score,Rank));
+            Rank+=1;
         }
         return sr;
     }
 
     private org.apache.lucene.search.Query CreateQuery(String field, String query) throws ParseException {
-        QueryParser qp = new QueryParser(field,analyzer);
+        QueryParser qp = new QueryParser(field, analyzer);
         org.apache.lucene.search.Query qr = qp.parse(query);
-        switch (field){
+        switch (field) {
             case "title":
-                qr = new BoostQuery(qr,SearchPolicy.getTitleAuthority());
+                qr = new BoostQuery(qr, SearchPolicy.getTitleAuthority());
                 break;
             case "text":
-                qr = new BoostQuery(qr,SearchPolicy.getTextAuthority());
+                qr = new BoostQuery(qr, SearchPolicy.getTextAuthority());
                 break;
             case "author":
-                qr = new BoostQuery(qr,SearchPolicy.getAuthorAuthority());
+                qr = new BoostQuery(qr, SearchPolicy.getAuthorAuthority());
                 break;
         }
         return qr;
     }
 
     private String ExplainDoc(org.apache.lucene.search.Query qu, Integer id, IndexSearcher searcher) throws ParseException, IOException {
-        org.apache.lucene.search.Query qud = CreateQuery("id",String.valueOf(id));
-        TopDocs docs = searcher.search(qud,1);
+        org.apache.lucene.search.Query qud = CreateQuery("id", String.valueOf(id));
+        TopDocs docs = searcher.search(qud, 1);
         Integer docid = docs.scoreDocs[0].doc;
-        return searcher.explain(qu,docid).toString();
+        return searcher.explain(qu, docid).toString();
     }
 }

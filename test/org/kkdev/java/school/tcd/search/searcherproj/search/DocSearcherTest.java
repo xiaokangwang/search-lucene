@@ -23,7 +23,7 @@ class DocSearcherTest {
 
     @Test
     void search() throws IOException, ParseException {
-        SearchPolicy sp = new SearchPolicy(Float.valueOf((float) 2), Float.valueOf((float) 0.5), Float.valueOf((float) 1.5), 200);
+        SearchPolicy sp = new SearchPolicy(Float.valueOf((float) 0.04f), Float.valueOf((float) 0.35f), Float.valueOf((float) 0.65f),Float.valueOf((float) 0.02f), 200);
         String IndexLocation = "./index";
         DocSearcher ds = new DocSearcher(sp, IndexLocation);
 
