@@ -32,13 +32,14 @@ class DocSearcherTest {
         QueryHolder qh = new QueryHolder(new DotFileArray(dfa.getContent()));
 
         SearchResultOutputer sro = new SearchResultOutputer();
+        Integer seqid = 1;
         for (Integer i : qh.getContains().keySet()) {
-            //if (i == 196) {
+            //if (i == 225) {
                 List<SearchResult> sr = ds.Search(qh.getContains().get(i));
 
-                sro.OutputSearchResult(sr, i);
-           // }
-
+                sro.OutputSearchResult(sr, seqid);
+            //}
+            seqid++;
 
         }
         Files.deleteIfExists(Paths.get("result.txt"));
