@@ -19,7 +19,7 @@ import java.util.List;
 public class SearchIndex {
     public static void main(String[] Args) throws IOException, ParseException {
         System.out.println("Defining Search Policy....");
-        SearchPolicy sp = new SearchPolicy(Float.valueOf((float) 0.04f), Float.valueOf((float) 0.35f), Float.valueOf((float) 0.65f),Float.valueOf((float) 0.02f), 200);
+        SearchPolicy sp = new SearchPolicy(Float.valueOf((float) 0.1f), Float.valueOf((float) 0.8f), Float.valueOf((float) 0.60f),Float.valueOf((float) 0.02f), 200);
         System.out.println("Opening index for read....");
         String IndexLocation = "./index";
         DocSearcher ds = new DocSearcher(sp, IndexLocation);
