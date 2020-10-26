@@ -12,6 +12,7 @@ import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.search.similarities.BooleanSimilarity;
 import org.apache.lucene.search.similarities.ClassicSimilarity;
+import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.kkdev.java.school.tcd.search.searcherproj.Ayer;
@@ -25,6 +26,7 @@ import java.util.function.BiConsumer;
 public class DocIndexCreator {
     private String Location;
     private DocumentHolder hd;
+    private Similarity sim = new BM25Similarity();
 
     public DocIndexCreator(String location, DocumentHolder hd) {
         Location = location;
@@ -35,7 +37,7 @@ public class DocIndexCreator {
         Analyzer analyzer = Ayer.analyzer;
         Directory directory = FSDirectory.open(Paths.get(Location));
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
-        config.setSimilarity(new BM25Similarity());
+        config.setSimilarity(sim);
         IndexWriter iwriter = new IndexWriter(directory, config);
 
 

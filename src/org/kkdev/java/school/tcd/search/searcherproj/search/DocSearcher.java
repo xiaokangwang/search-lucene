@@ -9,10 +9,7 @@ import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.*;
-import org.apache.lucene.search.similarities.BM25Similarity;
-import org.apache.lucene.search.similarities.BooleanSimilarity;
-import org.apache.lucene.search.similarities.ClassicSimilarity;
-import org.apache.lucene.search.similarities.IBSimilarity;
+import org.apache.lucene.search.similarities.*;
 import org.apache.lucene.store.FSDirectory;
 import org.kkdev.java.school.tcd.search.searcherproj.Ayer;
 import org.kkdev.java.school.tcd.search.searcherproj.data.Query;
@@ -32,6 +29,16 @@ public class DocSearcher {
     private Analyzer analyzer = Ayer.analyzer;
     ;
 
+    public Similarity getSim() {
+        return sim;
+    }
+
+    public void setSim(Similarity sim) {
+        this.sim = sim;
+    }
+
+    private Similarity sim = new BM25Similarity();
+
     public DocSearcher(org.kkdev.java.school.tcd.search.searcherproj.data.SearchPolicy searchPolicy, String location) {
         SearchPolicy = searchPolicy;
         Location = location;
@@ -41,7 +48,7 @@ public class DocSearcher {
         LinkedList<SearchResult> sr = new LinkedList<>();
         IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(Location)));
         IndexSearcher searcher = new IndexSearcher(reader);
-        searcher.setSimilarity(new BM25Similarity());
+        searcher.setSimilarity(sim);
 
 
         HashMap<String, Float> boostedScores = new HashMap<String, Float>();
